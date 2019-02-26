@@ -1,5 +1,5 @@
 {% set name = "yacs" %}
-{% set version = "0.1.4" %}
+{% set version = "0.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2ae48bd89224d0d0fa73d7d084ca02f892664e4a08776b495ae569493e2d0f57
+  sha256: e9d10aabae40a02011354348c3b4293bee677667cab19cc52e3c09a6069e0625
 
 build:
   noarch: python
