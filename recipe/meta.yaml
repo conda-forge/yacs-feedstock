@@ -1,5 +1,5 @@
 {% set name = "yacs" %}
-{% set version = "0.1.6" %}
+{% set version = "0.1.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 602de7d0f2f4311d8aba599495c0321944bc41d5a19c166114ff60bc9c813cc7
+  sha256: 4e47a59c9852b5d9cdc3777587864e9771060340d8f1b92b2c68f45244550c02
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
@@ -31,7 +31,7 @@ about:
   home: https://github.com/rbgirshick/yacs
   license: Apache 2.0
   license_family: Apache
-  summary: 'YACS -- Yet Another Configuration System'
+  summary: YACS -- Yet Another Configuration System
   description: YACS -- Yet Another Configuration System
   doc_url: https://github.com/rbgirshick/yacs
   dev_url: https://github.com/rbgirshick/yacs
