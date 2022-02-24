@@ -1,5 +1,6 @@
 {% set name = "yacs" %}
-{% set version = "0.1.6" %}
+{% set version = "0.1.8" %}
+
 
 package:
   name: {{ name|lower }}
@@ -7,35 +8,39 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 602de7d0f2f4311d8aba599495c0321944bc41d5a19c166114ff60bc9c813cc7
+  sha256: efc4c732942b3103bea904ee89af98bcd27d01f0ac12d8d4d369f1e7a2914384
 
 build:
-  noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python
     - pip
-    - pyyaml
+    - python >=3.6
   run:
-    - python
+    - python >=3.6
     - pyyaml
 
 test:
   imports:
     - yacs
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/rbgirshick/yacs
-  license: Apache 2.0
-  license_family: Apache
-  summary: 'YACS -- Yet Another Configuration System'
-  description: YACS -- Yet Another Configuration System
+  summary: Yet Another Configuration System
+  license: Apache-2.0
+  license_file: LICENSE
   doc_url: https://github.com/rbgirshick/yacs
   dev_url: https://github.com/rbgirshick/yacs
+  description: YACS -- Yet Another Configuration System
 
 extra:
   recipe-maintainers:
     - hadim
+    - baszalmstra
